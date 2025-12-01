@@ -1,49 +1,397 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
+/* General Setup and Variables */
+:root {
+    --bg-color: #121212; /* Warna latar belakang tetap gelap */
+    --primary-color: #FFFFFF; /* DIGANTI: Neon Putih */
+    --text-color: #e0e0e0; /* Teks terang */
+    --link-hover-color: #CCCCCC; /* Sedikit abu-abu terang untuk hover */
+}
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Neon Glow Utility - Menggunakan warna putih untuk glow */
+.neon-glow {
+    text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color), inset 0 0 5px var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Header & Navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(18, 18, 18, 0.9);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    /* Neon glow putih */
+    text-shadow: 0 0 8px var(--primary-color); 
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 30px;
+    padding: 5px 10px;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* Sections General Styling */
+section {
+    padding: 100px 5%;
+    min-height: 100vh;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--primary-color);
+    /* Neon glow putih */
+    text-shadow: 0 0 8px var(--primary-color); 
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    text-transform: uppercase;
+    /* Neon button effect (putih) */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
+}
+
+.btn:hover {
+    background: var(--primary-color);
+    color: var(--bg-color);
+    /* Glow hover putih */
+    box-shadow: 0 0 20px var(--primary-color); 
+}
+
+/* 1. Home Section (Hero) */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 150px;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.role-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    /* Neon glow putih */
+    text-shadow: 0 0 5px var(--primary-color); 
+    margin-bottom: 20px;
+}
+
+.bio-text {
+    margin-bottom: 30px;
+}
+
+.hero-image-container {
+    position: relative;
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--primary-color);
+    /* Neon ring effect (Putih) */
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.8), 0 0 50px rgba(255, 255, 255, 0.4); 
+}
+
+/* 2. About Me Section */
+.about-content {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.skills {
+    flex: 1;
+    display: grid;
+    gap: 20px;
+}
+
+.skill-item {
+    background: #1e1e1e;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+}
+
+.skill-name {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.skill-bar-container {
+    background: #333;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 15px;
+}
+
+.skill-bar {
+    height: 100%;
+    background: var(--primary-color);
+    width: 0; /* Initial width for animation */
+    transition: width 1s ease-out;
+    /* Neon glow putih */
+    box-shadow: 0 0 5px var(--primary-color); 
+}
+
+/* 3. Portfolio Section */
+.project-filters {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background: transparent;
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.filter-btn.active {
+    color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.1);
+    /* Glow putih */
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5); 
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #333;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 15px;
     text-align: center;
 }
 
-header {
-    background: #333;
-    color: #fff;
-    padding: 40px 20px;
+.project-card:hover {
+    transform: translateY(-5px);
+    /* Hover glow putih */
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2); 
 }
 
-section {
-    margin: 30px;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.social ul {
-    list-style: none;
-    padding: 0;
-}
-
-.social li {
-    margin: 5px 0;
-}
-
-.social a {
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-#btn {
-    margin: 20px;
-    padding: 10px 20px;
-    background: #333;
-    color: white;
-    border: none;
+.project-card img {
+    width: 100%;
+    height: auto;
     border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.project-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.card-actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-actions a, .card-actions button {
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.detail-btn {
+    background: var(--primary-color);
+    color: var(--bg-color);
+    border: none;
     cursor: pointer;
 }
 
-#btn:hover {
-    background: #555;
+/* 4. Contact Section */
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 50vh;
 }
+
+.contact-form-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    background: #1e1e1e;
+    /* Border putih */
+    border: 2px solid var(--primary-color); 
+    border-radius: 10px;
+    /* Glow putih */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); 
+}
+
+.contact-form-container h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: #282828;
+    border: 1px solid #555;
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 1rem;
+    outline: none;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+form button[type="submit"] {
+    width: 100%;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: #1e1e1e;
+    margin: 10% auto;
+    padding: 30px;
+    /* Border putih */
+    border: 2px solid var(--primary-color); 
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    /* Glow putih */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); 
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.kembali-btn {
+    margin-top: 20px;
+}
+
+/* --- Responsiveness (Media Queries) --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px 5%;
+        position: static;
+    }
+
+    /* ... styling responsif lainnya ... */
+}
+
+/* Animation for skill bars on load */
+@keyframes fillSkillBar {
+    from { width: 0; }
+    to { width: attr(data-level percentage); }
+}
+.skill-bar[data-level] {
+    animation: fillSkillBar 1s forwards;
+}
+
