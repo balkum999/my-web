@@ -1,38 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
+    <title>Portfolio - Asep</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <h1>Welcome to My Personal Website</h1>
-        <p>Hi, I'm <strong>Your Iqbal</strong>. This is my simple personal homepage.</p>
+        <div class="logo">Portfolio</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
 
-    <section class="about">
-        <h2>About Me</h2>
-        <p>
-            I am a student / developer / IT enthusiast.  
-            I love networking, programming, and building cool things!
-        </p>
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1>Hi, I'm Asep</h1>
+            <p class="role-title">Frontend Developer</p>
+            <p class="bio-text">Saya seorang Web Developer dan Editor dengan pengalaman 1 tahun. Khususnya pada Front-End. Saya dapat membuat website sederhana seperti ini dan berpengalaman dalam dunia Editing Video dan Photo. Saya juga dapat melakukan hal dalam dunia Ethical Hacking seperti Penetration Testing.</p>
+            <div class="contact-buttons">
+                <a href="#contact" class="btn">Contact Me</a>
+                <div class="social-icons">
+                    </div>
+            </div>
+        </div>
+        <div class="hero-image-container">
+            <img src="placeholder-profile.png" alt="Asep Profile" class="profile-image">
+        </div>
     </section>
 
-    <section class="social">
-        <h2>Find Me</h2>
-        <ul>
-            <li><a href="https://github.com">GitHub</a></li>
-            <li><a href="https://linkedin.com">LinkedIn</a></li>
-            <li><a href="#">Instagram</a></li>
-        </ul>
+    <section id="about" class="about-section">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Passionate Developer</h3>
+                <p>Saya adalah seorang mahasiswa Teknik Informatika yang memiliki passion dalam dunia teknologi. Selain itu saya telah belajar berbagai bahasa pemrograman seperti HTML, CSS, JavaScript, dan PHP. Selain itu, saya juga tertarik dengan dunia keamanan siber dan telah mempelajari penetration testing.</p>
+                <a href="#" class="btn download-cv">Download CV</a>
+            </div>
+            <div class="skills">
+                <div class="skill-item">
+                    <div class="skill-name">HTML</div>
+                    <div class="skill-bar-container"><div class="skill-bar" data-level="90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">CSS</div>
+                    <div class="skill-bar-container"><div class="skill-bar" data-level="85%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">JavaScript</div>
+                    <div class="skill-bar-container"><div class="skill-bar" data-level="80%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">PHP</div>
+                    <div class="skill-bar-container"><div class="skill-bar" data-level="75%"></div></div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <button id="btn">Click Me</button>
+    <section id="portfolio" class="portfolio-section">
+        <h2 class="section-title">Projects</h2>
+        <div class="project-filters">
+            <button class="filter-btn active">Project</button>
+            <button class="filter-btn">Certificate</button>
+            <button class="filter-btn" id="tech-stack-btn">Tech Stack</button>
+        </div>
+        
+        <div class="projects-grid">
+            <div class="project-card" data-project-id="ecommerce">
+                <img src="project-ecommerce.png" alt="E-Commerce Website">
+                <h3>E-Commerce Website</h3>
+                <p>Modern online shopping platform with payment integration</p>
+                <div class="card-actions">
+                    <a href="#" class="live-demo">Live Demo</a>
+                    <button class="detail-btn" onclick="openModal('ecommerce')">Detail</button>
+                </div>
+            </div>
+            <div class="project-card" data-project-id="portfolio-template">
+                <img src="project-portfolio.png" alt="Portfolio Template">
+                <h3>Portfolio Template</h3>
+                <p>Responsive portfolio website for creative professionals</p>
+                <div class="card-actions">
+                    <a href="#" class="live-demo">Live Demo</a>
+                    <button class="detail-btn" onclick="openModal('portfolio-template')">Detail</button>
+                </div>
+            </div>
+            <div class="project-card" data-project-id="dashboard-admin">
+                <img src="project-dashboard.png" alt="Dashboard Admin">
+                <h3>Dashboard Admin</h3>
+                <p>Clean and modern admin dashboard with charts</p>
+                <div class="card-actions">
+                    <a href="#" class="live-demo">Live Demo</a>
+                    <button class="detail-btn" onclick="openModal('dashboard-admin')">Detail</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="tech-stack-view">
+            <div class="tech-icon-item">
+                <img src="tech-html.png" alt="HTML">
+                <p>HTML</p>
+            </div>
+            <div class="tech-icon-item">
+                <img src="tech-css.png" alt="CSS">
+                <p>CSS</p>
+            </div>
+            <div class="tech-icon-item">
+                <img src="tech-js.png" alt="JavaScript">
+                <p>JavaScript</p>
+            </div>
+            <div class="tech-icon-item">
+                <img src="tech-php.png" alt="PHP">
+                <p>PHP</p>
+            </div>
+            </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-form-container">
+            <h3>Get In Touch</h3>
+            <form>
+                <input type="text" placeholder="Nama" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Pesan" required></textarea>
+                <button type="submit" class="btn">Kirim</button>
+            </form>
+        </div>
+    </section>
+    
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div id="modal-body">
+                </div>
+            <button class="btn kembali-btn" onclick="closeModal()">Kembali</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+
 
