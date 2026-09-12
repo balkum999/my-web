@@ -1,0 +1,390 @@
+/* --- 1. RESET & VARIABEL TEMA --- */
+:root {
+    --bg-color: #121212;
+    --primary-color: #FFFFFF;
+    --text-color: #e0e0e0;
+    --surface-color: #1e1e1e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Efek scroll halus untuk navigasi */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- 2. HEADER & NAVIGASI --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: rgba(18, 18, 18, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 0 0 8px var(--primary-color); 
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 5px;
+    font-size: 0.95rem;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* --- 3. LAYOUT WAJIB DICODING (FLEXBOX) --- */
+/* --- 3. LAYOUT WAJIB DICODING (FLEXBOX) DIPERLEBAR --- */
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Membuat jarak otomatis memisah ke ujung */
+    max-width: 1400px; /* DIPERBESAR agar tidak terlalu banyak ruang kosong di pinggir layar */
+    width: 95%; /* Memaksa konten mengisi 95% layar */
+    margin: 40px auto;
+    align-items: flex-start;
+}
+
+/* Bagian Kiri (Konten Utama) */
+.main-content {
+    width: 70%; /* Dibuat persentase pasti agar lebih lebar */
+    display: flex;
+    flex-direction: column;
+    gap: 80px; 
+}
+
+/* Bagian Kanan (Sidebar Biodata) */
+.profile-sidebar {
+    width: 26%; /* Dibuat proporsional mengisi sisa ruang di kanan */
+    background: var(--surface-color);
+    padding: 40px 30px; /* Padding diperbesar agar kotak aside lebih berisi */
+    border-radius: 12px;
+    border: 1px solid #333;
+    text-align: center;
+    position: sticky;
+    top: 100px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+    min-height: 350px; /* Memastikan kotak tidak bantet jika foto gagal dimuat */
+}
+
+/* Perbaikan agar foto tetap bulat sempurna walaupun file fotonya belum ada/error */
+.profile-image-aside {
+    display: block;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 20px auto;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    background-color: #2a2a2a; /* Warna background cadangan jika foto tidak ada */
+    color: transparent; /* Menyembunyikan teks alt yang merusak bentuk */
+}
+
+.profile-sidebar h3 { 
+    color: var(--primary-color); 
+    margin-bottom: 15px; 
+    font-size: 1.4rem;
+}
+
+.profile-sidebar p { 
+    font-size: 1rem; 
+    margin-bottom: 8px; 
+    line-height: 1.5;
+}
+
+/* --- 4. STYLE GLOBAL UNTUK SECTION --- */
+section {
+    padding-top: 20px; /* Disesuaikan agar tidak memakan ruang kosong */
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    text-shadow: 0 0 5px var(--primary-color);
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+/* Tombol (Button) */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.btn:hover {
+    background: var(--primary-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 15px var(--primary-color); 
+}
+
+/* --- 5. HERO SECTION (HOME) --- */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 50vh;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.role-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px var(--primary-color);
+}
+
+.bio-text {
+    font-size: 1rem;
+    color: #bbb;
+    margin-bottom: 25px;
+}
+
+/* --- 6. ABOUT SECTION --- */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.about-text h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.skills {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Membagi skill jadi 2 kolom sejajar */
+    gap: 20px;
+}
+
+.skill-item {
+    background: #2a2a2a;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.skill-name {
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.skill-bar-container {
+    background: #111;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-bar {
+    height: 100%;
+    background: var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color);
+    width: 0; /* Animasi lewat JS jika ada */
+}
+
+/* --- 7. PORTFOLIO SECTION --- */
+.project-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid #555;
+    color: #ccc;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: var(--surface-color);
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+.project-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.project-card h3 { color: var(--primary-color); margin-bottom: 8px; font-size: 1.1rem; }
+.project-card p { font-size: 0.85rem; color: #aaa; margin-bottom: 15px; line-height: 1.4; }
+
+.card-actions { display: flex; gap: 10px; justify-content: center; }
+.card-actions a, .card-actions button { padding: 6px 12px; font-size: 0.85rem; border-radius: 5px; cursor: pointer; }
+.detail-btn { background: var(--primary-color); color: var(--bg-color); border: none; font-weight: bold; }
+
+/* Tech Stack Icon */
+.tech-stack-view {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.tech-icon-item {
+    background: var(--surface-color);
+    padding: 15px;
+    border-radius: 10px;
+    width: 90px;
+    text-align: center;
+    border: 1px solid #333;
+}
+
+.tech-icon-item img { width: 40px; height: 40px; margin-bottom: 8px; }
+
+/* --- 8. CONTACT SECTION --- */
+.contact-form-container {
+    background: var(--surface-color);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    max-width: 500px;
+    margin: 0 auto; /* Tengah secara horizontal */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+.contact-form-container h3 { color: var(--primary-color); margin-bottom: 20px; text-align: center; }
+
+form input, form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background: #121212;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+form button { width: 100%; }
+
+/* --- 9. FOOTER --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--surface-color);
+    border-top: 1px solid #333;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* --- 10. MODAL & LAINNYA --- */
+.modal { display: none; position: fixed; z-index: 1001; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); }
+.modal-content { background-color: var(--surface-color); margin: 10% auto; padding: 30px; border: 1px solid var(--primary-color); border-radius: 10px; width: 90%; max-width: 600px; position: relative; }
+.close-btn { color: #aaa; position: absolute; top: 15px; right: 20px; font-size: 28px; font-weight: bold; cursor: pointer; }
+.close-btn:hover { color: var(--primary-color); }
+
+/* --- 11. RESPONSIVITAS (MOBILE FRIENDLY) --- */
+@media (max-width: 850px) {
+    main {
+        flex-direction: column-reverse; /* Biodata pindah ke atas di layar HP */
+        gap: 30px;
+    }
+    
+    .profile-sidebar {
+        position: static;
+        width: 100%;
+    }
+    
+    .skills {
+        grid-template-columns: 1fr; /* Skill jadi 1 kolom di HP */
+    }
+    
+    header {
+        flex-direction: column;
+        gap: 15px;
+        position: static; /* Navigasi tidak ikut scroll saat di HP untuk menghemat ruang */
+    }
+    
+    .hero-section {
+        min-height: auto;
+        text-align: center;
+        padding: 40px 0;
+    }
+}
