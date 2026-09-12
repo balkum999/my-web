@@ -64,8 +64,8 @@ nav a:hover {
     border-bottom: 2px solid var(--primary-color);
 }
 
-/* --- 3. LAYOUT WAJIB DICODING (FLEXBOX) --- */
-/* --- 3. LAYOUT WAJIB DICODING (FLEXBOX) DIPERLEBAR --- */
+/* (FLEXBOX) --- */
+/* (FLEXBOX) DIPERLEBAR --- */
 main {
     display: flex;
     flex-direction: row;
@@ -364,27 +364,62 @@ footer {
 @media (max-width: 850px) {
     main {
         flex-direction: column-reverse; /* Biodata pindah ke atas di layar HP */
-        gap: 30px;
+        gap: 40px;
+        width: 100%; 
+        margin: 20px auto;
     }
     
+    /* PERBAIKAN UTAMA: Memaksa konten utama mengisi 100% layar di HP */
+    .main-content {
+        width: 100%; 
+    }
+    
+    /* Memaksa sidebar biodata mengisi 100% layar di HP */
     .profile-sidebar {
         position: static;
         width: 100%;
-    }
-    
-    .skills {
-        grid-template-columns: 1fr; /* Skill jadi 1 kolom di HP */
+        min-height: auto;
     }
     
     header {
         flex-direction: column;
         gap: 15px;
-        position: static; /* Navigasi tidak ikut scroll saat di HP untuk menghemat ruang */
+        position: static; /* Navigasi tidak ikut scroll saat di HP */
+        padding: 20px 5%;
+    }
+    
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    nav a.btn {
+        margin-left: 0;
+        margin-top: 10px;
     }
     
     .hero-section {
         min-height: auto;
         text-align: center;
-        padding: 40px 0;
+        padding: 20px 0;
+    }
+
+    /* Mengecilkan font di HP agar lebih proporsional */
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .role-title {
+        font-size: 1.3rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    /* Menyesuaikan grid agar pas di layar kecil */
+    .projects-grid {
+        grid-template-columns: 1fr; /* Proyek jadi 1 baris ke bawah */
     }
 }
