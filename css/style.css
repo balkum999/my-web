@@ -365,19 +365,19 @@ footer {
     main {
         flex-direction: column-reverse; /* Biodata pindah ke atas di layar HP */
         gap: 40px;
-        width: 100%; 
+        width: 80%; 
         margin: 20px auto;
     }
     
     /* PERBAIKAN UTAMA: Memaksa konten utama mengisi 100% layar di HP */
     .main-content {
-        width: 100%; 
+        width: 80%; 
     }
     
     /* Memaksa sidebar biodata mengisi 100% layar di HP */
     .profile-sidebar {
         position: static;
-        width: 100%;
+        width: 80%;
         min-height: auto;
     }
     
